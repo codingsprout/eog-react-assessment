@@ -6,7 +6,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import 'react-toastify/dist/ReactToastify.css';
 import { Header, Wrapper } from './components';
-import Chart from './components/Container/Chart';
+import Chart from './components/Container/Chart/Chart';
 
 const store = createStore();
 const theme = createMuiTheme({

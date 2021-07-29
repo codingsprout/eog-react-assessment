@@ -5,7 +5,7 @@ import uuid from 'react-uuid';
 import moment from 'moment';
 
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, ResponsiveContainer, Legend, Label } from 'recharts';
-import { GlobalTypes } from '../../constants';
+import { GlobalTypes } from '../../../constants';
 
 const client = createClient({
   url: 'https://react.eogresources.com/graphql',
