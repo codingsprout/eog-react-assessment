@@ -10,7 +10,7 @@ export default () => {
   const middlewares = applyMiddleware(sagaMiddleware);
   const store = createStore(rootReducer, composeEnhancers(middlewares));
 
-  sagaMiddleware.run(sagas);
+  sagas.forEach(sagaMiddleware.run);
 
   return store;
 };

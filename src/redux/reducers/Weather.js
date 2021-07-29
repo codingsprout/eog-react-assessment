@@ -1,10 +1,10 @@
 import { GlobalTypes } from '../../constants';
 
 const initialState = {
-  tempInCel: null,
-  tempInFah: null,
+  temperatureinCelsius: null,
+  temperatureinFahrenheit: null,
   description: '',
-  location: '',
+  locationName: '',
 };
 
 const toF = c => (c * 9) / 5 + 32;
