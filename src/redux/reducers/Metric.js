@@ -1,30 +1,30 @@
 import { GlobalTypes } from '../../constants';
 
 const initialState = {
-  namesOfMetric: [], //initialize with empty array to store different metrics
+  metricNames: [],
+};
+
+const metricDataName = (state, action) => {
+  const { getMetricNames } = action;
+  const { metricNames } = getMetricNames;
+
+  return {
+    metricNames,
+  };
 };
 
 const metricDataAdd = (state, action) => {
-  if (action.namesOfMetric.length > 0) {
-    let namesOfMetric = []; //don't forget this or cause error
-    action.namesOfMetric.forEach(data => {
-      namesOfMetric.push({
-        namesOfMetric: data,
+  if (action.metricNames.length > 0) {
+    let metricNames = [];
+    action.metricNames.forEach(data => {
+      metricNames.push({
+        metricNames: data,
       });
     });
-    return { namesOfMetric }; //make sure its obj
+    return { metricNames }; //make sure its obj
   }
   return { state };
 }; // determine when metric name is added for action
-
-const metricDataName = (state, action) => {
-  const { getMetricName } = action;
-  const { namesOfMetric } = getMetricName;
-
-  return {
-    namesOfMetric,
-  };
-}; //fired action whenever get name of metric
 
 const metricDataHandler = {
   [GlobalTypes.METRIC_ADD]: metricDataAdd,

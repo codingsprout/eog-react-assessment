@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTheme } from '@material-ui/core/styles';
-import { useQuery } from 'urql';
+import { createClient, Provider, useQuery } from 'urql';
 
 import { useStyles, MenuProp } from './style';
 import { GlobalTypes } from '../../../constants';
@@ -47,7 +47,7 @@ const Search = () => {
   const dispatch = useDispatch();
 
   const onChangeHandler = e => {
-    setMetric(e.target.value);
+    setMetricName(e.target.value);
   };
 
   const [result] = useQuery({
@@ -57,14 +57,14 @@ const Search = () => {
   const { data, err } = result;
 
   useEffect(() => {
-    dispatch({ type: GlobalTypes.METRIC_ADD, metricName });
+    dispatch({ type: actions.DATA_NAME_ADDED, metricNames });
     if (err) {
       dispatch({ type: GlobalTypes.API_ERROR, error: err.message });
       return;
     }
     if (!data) return;
     setMetrics(data.getMetrics);
-  }, [dispatch, data, err, metricName]);
+  }, [dispatch, data, err, metricNames]);
 
   return (
     <div className={classes.root}>

@@ -5,4 +5,5 @@ export const GlobalTypes = {
   METRIC_ADD: 'METRIC_ADD',
   WEATHER_DATA: 'WEATHER_DATA',
   API_ERROR: 'API_ERROR',
+  API_UPDATE: 'API_UPDATED',
 };
